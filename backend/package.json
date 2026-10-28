@@ -1,0 +1,26 @@
+{
+  "name": "vacciora-backend",
+  "version": "1.0.0",
+  "description": "Vacciora Immunization Platform Backend",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed:schedule": "node scripts/seedVaccineSchedule.js",
+    "bootstrap-admin": "node scripts/bootstrapAdmin.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "nodemailer": "^6.10.0",
+    "pdfkit": "^0.16.0",
+    "qrcode": "^1.5.4",
+    "twilio": "^5.4.3"
+  }
+}

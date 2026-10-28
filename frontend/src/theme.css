@@ -1,0 +1,345 @@
+/**
+ * theme.css
+ * Vacciora Design Tokens & Deliberate Hospital Patient Portal Design System
+ */
+
+:root {
+  /* Surface & Base Palette (Warm off-white medical paper) */
+  --bg-app: #F8F9FA;
+  --bg-surface: #FFFFFF;
+  --bg-surface-subtle: #F3F5F4;
+  --bg-surface-raised: #FFFFFF;
+  --bg-surface-hover: #EEF2F0;
+
+  /* Typography Scale & Families */
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Brand Primary (Deep clinical teal) */
+  --color-primary: #0F766E;
+  --color-primary-dark: #115E59;
+  --color-primary-light: #CCFBF1;
+  --color-primary-subtle: #F0FDFA;
+
+  /* Role-Based Accents */
+  /* Parent: Warm Sage Green */
+  --role-parent: #2D6A4F;
+  --role-parent-light: #D8F3DC;
+  --role-parent-subtle: #F2F9F5;
+  --role-parent-border: #95D5B2;
+
+  /* Staff: Clean Clinical Teal-Blue */
+  --role-staff: #0369A1;
+  --role-staff-light: #E0F2FE;
+  --role-staff-subtle: #F0F9FF;
+  --role-staff-border: #7DD3FC;
+
+  /* Admin: Authoritative Indigo-Slate */
+  --role-admin: #4338CA;
+  --role-admin-light: #E0E7FF;
+  --role-admin-subtle: #EEF2FF;
+  --role-admin-border: #A5B4FC;
+
+  /* Semantic Health Status Colors */
+  --status-completed: #15803D;
+  --status-completed-bg: #DCFCE7;
+  --status-completed-border: #86EFAC;
+
+  --status-due: #B45309;
+  --status-due-bg: #FEF3C7;
+  --status-due-border: #FCD34D;
+
+  --status-overdue: #B91C1C;
+  --status-overdue-bg: #FEE2E2;
+  --status-overdue-border: #FCA5A5;
+
+  --status-upcoming: #475569;
+  --status-upcoming-bg: #F1F5F9;
+  --status-upcoming-border: #CBD5E1;
+
+  /* Neutral Text & Borders */
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-inverse: #FFFFFF;
+
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --border-dark: #94A3B8;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-card: 18px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Layered Paper Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 1px 3px 0 rgba(15, 23, 42, 0.03);
+  --shadow-hover: 0 10px 25px -4px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+  --shadow-modal: 0 20px 40px -8px rgba(15, 23, 42, 0.18), 0 8px 12px -4px rgba(15, 23, 42, 0.08);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-heading);
+  letter-spacing: -0.015em;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Focus States for Accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-card);
+  padding: 1.75rem;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  font-weight: 500;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--text-inverse);
+  box-shadow: 0 2px 4px rgba(15, 118, 110, 0.2);
+}
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border-color: var(--border-medium);
+}
+.btn-secondary:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.btn-parent {
+  background: var(--role-parent);
+  color: var(--text-inverse);
+}
+.btn-parent:hover {
+  background: #1B4332;
+}
+
+.btn-staff {
+  background: var(--role-staff);
+  color: var(--text-inverse);
+}
+.btn-staff:hover {
+  background: #0284C7;
+}
+
+.btn-admin {
+  background: var(--role-admin);
+  color: var(--text-inverse);
+}
+.btn-admin:hover {
+  background: #3730A3;
+}
+
+/* Badges & Status Tags */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.775rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badge-completed {
+  background: var(--status-completed-bg);
+  color: var(--status-completed);
+  border: 1px solid var(--status-completed-border);
+}
+
+.badge-due {
+  background: var(--status-due-bg);
+  color: var(--status-due);
+  border: 1px solid var(--status-due-border);
+}
+
+.badge-overdue {
+  background: var(--status-overdue-bg);
+  color: var(--status-overdue);
+  border: 1px solid var(--status-overdue-border);
+}
+
+.badge-upcoming {
+  background: var(--status-upcoming-bg);
+  color: var(--status-upcoming);
+  border: 1px solid var(--status-upcoming-border);
+}
+
+/* Form Controls */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-input, .form-select, .form-textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  background: #FFFFFF;
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: var(--status-overdue);
+  margin-top: 0.25rem;
+}
+
+/* Modal Backdrops & Overlays */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: var(--bg-surface);
+  border-radius: var(--radius-card);
+  max-width: 580px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-modal);
+  padding: 2rem;
+  position: relative;
+  animation: modalIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Skeleton Loading State */
+.skeleton {
+  background: linear-gradient(90deg, #F1F5F9 25%, #E2E8F0 50%, #F1F5F9 75%);
+  background-size: 200% 100%;
+  animation: skeletonWave 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes skeletonWave {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Responsive Grid Helper */
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+  }
+  .modal-content {
+    padding: 1.25rem;
+  }
+}

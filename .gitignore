@@ -1,0 +1,30 @@
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Build files
+dist/
+build/
+
+# Python virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated certificates containing personal information
+backend/certificates_storage/*.pdf
