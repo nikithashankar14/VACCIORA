@@ -3,7 +3,7 @@
  * Centralized API client for communicating with the Vacciora backend.
  */
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://vacciora-backend.onrender.com/api';
 
 export async function apiRequest(endpoint, options = {}) {
   const token = localStorage.getItem('vacciora_token');
